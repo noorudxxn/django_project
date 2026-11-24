@@ -1,0 +1,58 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Edit Weight | WeightTrack{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Edit Weight</h1>
+        <p>Update your existing weight record.</p>
+    </div>
+
+</div>
+
+<div class="content-card form-card">
+
+    <h2>Update Weight</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+
+            <label for="{{ form.weight.id_for_label }}">
+                Weight (KG)
+            </label>
+
+            {{ form.weight }}
+
+            {% for error in form.weight.errors %}
+
+                <small class="field-error">
+                    {{ error }}
+                </small>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="form-buttons">
+
+            <button type="submit" class="action-btn">
+                Update Weight
+            </button>
+
+            <a href="{% url 'weight_list' %}" class="cancel-btn">
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
