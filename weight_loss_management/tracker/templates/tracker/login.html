@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | WeightTrack</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tracker/style.css' %}">
+</head>
+
+<body>
+
+<div class="auth-page">
+    <div class="auth-container">
+
+        <h1>WeightTrack</h1>
+        <p class="auth-subtitle">Login to your account</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <button type="submit" class="auth-button">
+                Login
+            </button>
+        </form>
+
+        <p class="auth-link">
+            Don't have an account?
+            <a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>
