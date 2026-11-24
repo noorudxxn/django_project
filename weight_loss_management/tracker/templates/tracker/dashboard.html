@@ -1,0 +1,48 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Dashboard | WeightTrack{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Dashboard</h1>
+        <p>Welcome back, {{ request.user.username }}!</p>
+    </div>
+
+    <a href="{% url 'add_weight' %}" class="action-btn">
+        + Add Weight
+    </a>
+
+</div>
+
+<div class="content-card">
+
+    <h2>Welcome to WeightTrack</h2>
+
+    <p>
+        Manage your daily weight records and monitor your progress.
+    </p>
+
+</div>
+
+<div class="content-card">
+
+    <h2>Quick Actions</h2>
+
+    <div class="quick-actions">
+
+        <a href="{% url 'add_weight' %}" class="action-btn">
+            Add New Weight
+        </a>
+
+        <a href="{% url 'weight_list' %}" class="secondary-btn">
+            View Weight History
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

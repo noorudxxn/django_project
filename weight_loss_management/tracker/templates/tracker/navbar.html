@@ -1,0 +1,43 @@
+<div class="sidebar">
+
+    <div class="brand">
+
+        <h2>WeightTrack</h2>
+
+        <p>Weight Management System</p>
+
+    </div>
+
+    <div class="user-info">
+
+        <span>Logged in as</span>
+
+        <h4>{{ request.user.username }}</h4>
+
+    </div>
+
+    <nav>
+
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+
+        <a href="{% url 'add_weight' %}">Add Weight</a>
+
+        <a href="{% url 'weight_list' %}">Weight History</a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <form method="POST" action="{% url 'logout' %}">
+
+            {% csrf_token %}
+
+            <button type="submit" class="logout-btn">
+                Logout
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
