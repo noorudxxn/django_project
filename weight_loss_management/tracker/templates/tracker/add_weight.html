@@ -1,0 +1,62 @@
+{% extends 'tracker/base.html' %}
+
+{% block title %}Add Weight | WeightTrack{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+
+    <div>
+        <h1>Add Weight</h1>
+        <p>Record your current weight.</p>
+    </div>
+
+</div>
+
+<div class="content-card form-card">
+
+    <h2>Record Your Weight</h2>
+
+    <p class="form-description">
+        Enter your current weight in kilograms.
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+
+            <label for="{{ form.weight.id_for_label }}">
+                Weight (KG)
+            </label>
+
+            {{ form.weight }}
+
+            {% for error in form.weight.errors %}
+
+                <small class="field-error">
+                    {{ error }}
+                </small>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="form-buttons">
+
+            <button type="submit" class="action-btn">
+                Save Weight
+            </button>
+
+            <a href="{% url 'dashboard' %}" class="cancel-btn">
+                Cancel
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}
